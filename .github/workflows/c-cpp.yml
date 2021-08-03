@@ -17,5 +17,9 @@ jobs:
       run: ./scripts/feeds update -a
     - name: install feeds
       run: ./scripts/feeds install -a
+    - uses: canastro/copy-action@0.0.2
+      with:
+        source: '.config_default'
+        target: '.config'
     - name: make
       run: make
