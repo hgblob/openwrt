@@ -23,3 +23,7 @@ jobs:
         target: '.config'
     - name: make
       run: make
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2.2.4
+      with:
+        path: 'bin/targets/ipq807x/generic/*'
