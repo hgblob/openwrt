@@ -1,0 +1,21 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ ax3600 ]
+  pull_request:
+    branches: [ ax3600 ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: update feeds
+      run: ./scripts/feeds update -a
+    - name: install feeds
+      run: ./scripts/feeds install -a
+    - name: make
+      run: make
